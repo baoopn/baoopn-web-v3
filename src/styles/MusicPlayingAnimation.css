@@ -1,0 +1,31 @@
+@keyframes animation {
+  10% {
+    transform: scaleY(0.3);
+  }
+  30% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(0.5);
+  }
+  80% {
+    transform: scaleY(0.75);
+  }
+  100% {
+    transform: scaleY(0.5);
+  }
+}
+
+.playing {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar {
+  width: 3px;
+  height: 100%;
+  border-radius: 3px;
+  animation: animation 2.2s ease infinite alternate;
+  transform-origin: bottom;
+}

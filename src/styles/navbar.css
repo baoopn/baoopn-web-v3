@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* Navbar styles */
+.navbar {
+  @apply bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100;
+}
+
+.navbar-link {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Animation styles */
+.menu-panel {
+  @apply fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 shadow-md;
+}
+
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
