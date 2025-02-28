@@ -26,7 +26,7 @@ const SOCIAL_MEDIA = [
 
 const AboutSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center py-24">
+    <section id="about" className="min-h-screen flex items-center justify-center py-24">
       <div className="max-w-4xl m-auto flex items-center flex-col px-4">
         <Reveal >
           <h2 className="text-4xl font-semibold text-center">About Me</h2>
@@ -57,7 +57,7 @@ const AboutSection = () => {
             Let&apos;s connect and create something amazing together!
           </p>
         </Reveal>
-        <Reveal>
+        <Reveal >
           <div className="flex justify-center mt-4 space-x-8">
             {SOCIAL_MEDIA.map((social, index) => (
               <a
@@ -73,7 +73,7 @@ const AboutSection = () => {
             ))}
           </div>
         </Reveal>
-        <Reveal>
+        <Reveal >
           <img
             className="mt-8 rounded-md"
             src="https://cdn.baoopn.com/data/img/Bao_cover.jpg"

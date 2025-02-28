@@ -10,4 +10,5 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  assetsInclude: ['**/*.md']
 })

@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+.markdown-body {
+  line-height: 1.6;
+  @apply pb-32;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  @apply text-left font-bold;
+}
+
+.markdown-body h1 {
+  @apply text-4xl mt-8 mb-4;
+}
+
+.markdown-body h2 {
+  @apply text-3xl mt-6 mb-3;
+}
+
+.markdown-body h3 {
+  @apply text-2xl mt-5 mb-2;
+}
+
+.markdown-body h4 {
+  @apply text-xl mt-4 mb-2;
+}
+
+.markdown-body h5 {
+  @apply text-lg mt-3 mb-1;
+}
+
+.markdown-body h6 {
+  @apply text-base mt-2 mb-1;
+}
+
+.markdown-body p {
+  margin-bottom: 1em;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside ml-5 mb-4;
+}
+
+.markdown-body ol {
+  @apply list-decimal list-inside ml-5 mb-4;
+}
+
+.markdown-body li {
+  @apply mb-2;
+}
+
+.markdown-body pre {
+  padding: 1em;
+  border-radius: 5px;
+  max-width: 90svw;
+}
+
+.markdown-body code {
+  font-size: 0.9em;
+}
+
+.markdown-body pre div {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.markdown-body hr {
+  @apply border-t-2 border-gray-300 my-6;
+}

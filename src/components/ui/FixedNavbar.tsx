@@ -6,9 +6,9 @@ import LogoLong from './LogoLong'
 
 const links = [
   { name: 'Home', route: '/' },
-  { name: 'About', route: '/about' },
-  { name: 'Projects', route: '/projects' },
-  { name: 'Contact', route: '/contact' },
+  { name: 'About', route: '/', href: '/#about' },
+  { name: 'Projects', route: '/', href: '/#projects' },
+  { name: 'Contact', route: '/', href: '/#contact' },
 ]
 
 const sublinks = [
@@ -25,22 +25,22 @@ const FixedNavbar: React.FC = () => {
   }, [isOpen])
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[var(--dark-pink)] text-white p-4 z-50 shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-[var(--dark-pink)] text-white p-4 z-20 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
-          {/* <div className="w-10 h-10 bg-[var(--primary-pink)] rounded-full flex items-center justify-center">
+        <Link to="/" href='/' className="flex items-center space-x-2">
+          <div className="w-10 h-10 bg-[var(--light-background)] rounded-full flex items-center justify-center">
             <img
-              src="https://cdn.baoopn.com/data/img/Baoo.png"
+              src="https://cdn.baoopn.com/data/img/profile2.JPG"
               alt="Bao's Icon"
               width={36}
               height={36}
               className="rounded-full"
             />
-          </div> */}
+          </div>
           <LogoLong 
             width={144}
             height={40}
-            color="#c6e1ff"
+            color="#fff5eb"
           />
         </Link>
 
@@ -48,7 +48,7 @@ const FixedNavbar: React.FC = () => {
         <div className="hidden md:flex space-x-0 items-center">
           {links.map(link => (
             <div key={link.name} className="hover:bg-[var(--less-dark-pink)] rounded-md">
-              <Link to={link.route} className="block px-3 py-2 animated-underline">
+              <Link to={link.route} href={link.href} className="block px-3 py-2 animated-underline">
                 {link.name}
               </Link>
             </div>
