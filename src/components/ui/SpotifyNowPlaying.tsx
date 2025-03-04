@@ -1,33 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SpotifyPlayingTrack } from "../../types/types";
 import { LISTENING_API_URL } from "../../utils/constants";
 import MusicPlayingAnimation from "./MusicPlayingAnimation";
 
 const SpotifyNowPlaying: React.FC<{ className?: string }> = ({ className = "" }) => {
   const [track, setTrack] = useState<SpotifyPlayingTrack>({
-    isPlaying: false,
+    playing: false,
     id: '',
   });
   const [loading, setLoading] = useState(true);
   const [hasResponse, setHasResponse] = useState(false);
+  const [iframeLoading, setIframeLoading] = useState(true);
+
+  // Keep track of the previous state to detect changes
+  const previousStateRef = useRef({
+    id: '',
+    playing: false
+  });
+
+  // Keep track of whether the iframe has been mounted
+  const iframeMounted = useRef(false);
 
   useEffect(() => {
     const fetchCurrentlyPlaying = () => {
       if (!hasResponse) {
+        // Only set loading on initial fetch
         setLoading(true);
       }
 
       const socket = new WebSocket(`wss://${LISTENING_API_URL}`);
 
       socket.onopen = () => {
-        socket.send(JSON.stringify({ type: 'get-currently-playing' }));
+        socket.send('currently-playing');
       };
 
       socket.onmessage = (event) => {
         try {
           const message = JSON.parse(event.data);
-          if (message.type === 'currently-playing') {
-            setTrack(message.data);
+
+          if (message) {
+            // Check if the track ID or playing state has changed
+            const trackChanged = message.id !== previousStateRef.current.id;
+            const stateChanged = message.playing !== previousStateRef.current.playing;
+
+            if (trackChanged || stateChanged) {
+              // Update iframe loading state for any relevant change
+              setIframeLoading(true);
+              previousStateRef.current = {
+                id: message.id,
+                playing: message.playing
+              };
+            }
+
+            setTrack(message);
             setLoading(false);
             setHasResponse(true);
           }
@@ -62,7 +87,7 @@ const SpotifyNowPlaying: React.FC<{ className?: string }> = ({ className = "" })
 
     const interval = setInterval(() => {
       if (socket.readyState === WebSocket.OPEN) {
-        socket.send(JSON.stringify({ type: 'get-currently-playing' }));
+        socket.send('currently-playing');
       } else {
         socket.close();
         fetchCurrentlyPlaying();
@@ -75,6 +100,12 @@ const SpotifyNowPlaying: React.FC<{ className?: string }> = ({ className = "" })
       socket.close();
     };
   }, [hasResponse]);
+
+  // Handle iframe load event
+  const handleIframeLoad = () => {
+    setIframeLoading(false);
+    iframeMounted.current = true;
+  };
 
   // Show loading state only for initial connection
   if (loading && !hasResponse) {
@@ -91,7 +122,7 @@ const SpotifyNowPlaying: React.FC<{ className?: string }> = ({ className = "" })
   }
 
   // If not playing, show a message
-  if (!track.isPlaying) {
+  if (!track.playing) {
     return (
       <div className={`bg-[var(--background-lighter)] p-3 rounded-lg shadow-md ${className}`}>
         <div className="flex items-center">
@@ -122,19 +153,27 @@ const SpotifyNowPlaying: React.FC<{ className?: string }> = ({ className = "" })
   return (
     <div id="music" className={`bg-[var(--slider-background)]/70 drop-shadow-md p-3 rounded-lg shadow-md ${className}`}>
       <div className="flex items-center mb-1">
-        <span className="text-[var(--text-color-lighter)] text-sm mr-2 drop-shadow-md">
-          Currently listening to: &nbsp;
+        <span className="text-[var(--text-color)] text-sm mr-2 drop-shadow-md">
+          Currently listening to:
         </span>
-        <MusicPlayingAnimation height="15px" width="70px" number={10} />
+        <MusicPlayingAnimation height="15px" width="70px" number={10} className="mx-auto" />
       </div>
-      <iframe
-        className="bg-transparent border-0 rounded-xl"
-        src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator`}
-        width="300"
-        height="80"
-        loading="lazy"
-        style={{ border: '0' }}
-      ></iframe>
+      <div className="relative">
+        {iframeLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-[var(--background-lighter)]/30 backdrop-blur-sm rounded-xl z-10">
+            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[var(--primary-pink)]"></div>
+          </div>
+        )}
+        <iframe
+          className="bg-transparent border-0 rounded-xl"
+          src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator`}
+          width="300"
+          height="80"
+          loading="lazy"
+          style={{ border: '0' }}
+          onLoad={handleIframeLoad}
+        ></iframe>
+      </div>
     </div>
   );
 };

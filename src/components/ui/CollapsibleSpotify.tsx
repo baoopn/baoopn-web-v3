@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SpotifyNowPlaying from "./SpotifyNowPlaying";
 import { motion, AnimatePresence } from "framer-motion";
+import ActionButton from "./ActionButton";
 
 const CollapsibleSpotify: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,21 +21,22 @@ const CollapsibleSpotify: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <button 
+
+      <ActionButton
         onClick={() => setIsVisible(!isVisible)}
-        className="bg-[var(--dark-pink)] hover:bg-[var(--primary-pink)] text-white rounded-full p-2 shadow-lg transition-all duration-300 flex items-center justify-center"
+        primary
+        className="p-2 rounded-full !px-2 !py-2 shadow-lg"
         aria-label={isVisible ? "Hide music player" : "Show music player"}
       >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
         >
           {isVisible ? (
@@ -50,7 +52,7 @@ const CollapsibleSpotify: React.FC = () => {
             </>
           )}
         </svg>
-      </button>
+      </ActionButton>
     </div>
   );
 };
