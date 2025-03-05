@@ -1,7 +1,6 @@
 import ContactForm from "./ui/ContactForm";
 import ContactLinks from "./ui/ContactLinks";
 import { Reveal } from "./utils/Reveal";
-import { FaEnvelope } from "react-icons/fa";
 
 const ContactSection = () => {
   return (
@@ -19,8 +18,8 @@ const ContactSection = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ContactLinks className="col-span-1 w-full m-auto p-4 items-center"/>
           <ContactForm className="col-span-1 max-w-4xl mx-auto p-4" />
+          <ContactLinks className="col-span-1 w-full mx-auto mt-4 p-4 items-center" />
         </div>
       </div>
     </section>

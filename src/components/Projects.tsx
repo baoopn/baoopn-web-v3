@@ -18,13 +18,16 @@ const PROJECTS = [
     }
   },
   {
-    title: "Personal Portfolio",
+    title: "Personal Portfolio App",
     period: "Feb 2025",
     description: "A responsive portfolio website built with React and Framer Motion for smooth animations.",
     imageSrc: "/thumbs/portfolio-thumb.png",
     imageAlt: "Portfolio website screenshot",
     technologies: ["React", "TypeScript", "TanStack Router", "Framer Motion", "Tailwind CSS"],
-    blogPage: undefined,
+    blogPage: {
+      slug: "portfolio-app",
+      page: 1
+    },
     demoLink: "https://baoopn.com/",
   },
 ];

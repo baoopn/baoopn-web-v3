@@ -68,7 +68,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
     const hasMessage = messageRequest.message.trim().length >= 10;
 
 		setIsFormValid(hasName && hasValidEmail && hasMessage);
-		setAlert(InitialAlert);
+    if (alert.type != "success") {
+      setAlert(InitialAlert);
+    }
   }, [messageRequest.name, messageRequest.contact, messageRequest.message]);
 
   // Validate email with regex
@@ -171,6 +173,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
             message: "Message sent successfully!",
             type: "success",
           });
+
+          // Reset form
+          setMessageRequest(InitialMessageRequest);
+          setErrorMessages(InitialErrorMessages);
+          setTouchedFields({});
         }
       } catch (error) {
         setAlert({
@@ -180,11 +187,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
       } finally {
         setIsSubmitting(false);
       }
-
-      // Reset form
-      setMessageRequest(InitialMessageRequest);
-      setErrorMessages(InitialErrorMessages);
-      setTouchedFields({});
     }
   };
 
