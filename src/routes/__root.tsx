@@ -18,7 +18,7 @@ function RootComponent() {
       <div className="font-comfortaa root-container min-h-[calc(100vh+1px)]">
         <FixedNavbar />
         <motion.div
-          className='progress-bar fixed left-0 top-[72px] z-50 h-1 w-screen bg-[var(--text-color)]'
+          className='progress-bar fixed left-0 top-[72px] z-5 h-1 w-screen bg-[var(--text-color)]'
           style={{
             scaleX: scrollYProgress,
             transformOrigin: '0 0',

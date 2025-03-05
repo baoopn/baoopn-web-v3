@@ -26,6 +26,11 @@ const FixedNavbar: React.FC = () => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
+  // Function to handle link clicks in mobile menu
+  const handleMobileLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-[var(--dark-pink)] text-white p-4 z-20 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -82,7 +87,11 @@ const FixedNavbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(true)}>
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+        >
           <Menu className="h-6 w-6" />
         </button>
       </div>
@@ -93,7 +102,7 @@ const FixedNavbar: React.FC = () => {
       >
         <div className="flex justify-between items-center p-4 border-b bg-[var(--dark-pink)]">
           <span className="text-xl font-semibold">Menu</span>
-          <button onClick={() => setIsOpen(false)}>
+          <button onClick={() => setIsOpen(false)} aria-label="Close menu">
             <X className="h-6 w-6" />
           </button>
         </div>
@@ -103,7 +112,12 @@ const FixedNavbar: React.FC = () => {
               key={link.name}
               className="hover:bg-[var(--primary-pink)] rounded-md"
             >
-              <Link to={link.route} className="block w-full px-4 py-2">
+              <Link
+                to={link.route}
+                href={link.href}
+                className="block w-full px-4 py-2"
+                onClick={handleMobileLinkClick}
+              >
                 {link.name}
               </Link>
             </div>
@@ -127,6 +141,7 @@ const FixedNavbar: React.FC = () => {
                     key={sublink.name}
                     to={sublink.route}
                     className="block px-6 py-2 w-full hover:bg-[var(--primary-pink)]"
+                    onClick={handleMobileLinkClick}
                   >
                     {sublink.name}
                   </Link>
