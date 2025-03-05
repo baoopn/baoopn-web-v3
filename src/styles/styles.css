@@ -23,10 +23,12 @@
   --primary-pink-transparent: rgba(222, 126, 133, 0.2);
   --dark-pink: #784447;
   --less-dark-pink: #9e595d;
+  --gray-pink: #746162;
   --abstract-light: rgba(255, 250, 248, 0.8);
   --abstract-dark: rgba(255, 245, 235, 0.8);
   --text-color: #0b0637;
   --text-color-lighter: #4b4865;
+  --text-color-white: #fff5eb;
   --dark-blue: #3b82f6;
   --darker-blue: #1d4ed8;
 }
@@ -43,7 +45,7 @@
     --background: #171717;
     --background-lighter: #1f1f2f;
     --background-secondary: #171722;
-    --slider-background: #1f2937;
+    --slider-background: #415064;
     --primary-pink: #de7e85;
     --primary-pink-transparent: rgba(222, 126, 133, 0.2);
     --dark-pink: #784447;
@@ -74,10 +76,6 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light dark;
-}
-
-* {
-  @apply border-gray-200 dark:border-gray-800;
 }
 
 body {

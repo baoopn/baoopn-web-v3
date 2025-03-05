@@ -10,5 +10,8 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  server: {
+    allowedHosts: ['localhost', '.baoopn.com']
+  },
   assetsInclude: ['**/*.md']
 })
