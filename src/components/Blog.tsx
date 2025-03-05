@@ -3,9 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import '../styles/blog.css';
-import Pagination from './ui/Pagination';
+import Pagination from './utils/Pagination';
 import { Link } from '@tanstack/react-router';
-import { Reveal } from './utils/Reveal';
 
 interface BlogPage {
 	title: string;
