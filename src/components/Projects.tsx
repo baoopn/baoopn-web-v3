@@ -5,30 +5,38 @@ import ActionButton from "./ui/ActionButton";
 
 const PROJECTS = [
   {
+    title: "Personal Portfolio App",
+    period: "Mar 2025",
+    description:
+      "A responsive portfolio website built with React and Framer Motion for smooth animations.",
+    imageSrc: "/thumbs/portfolio-thumb.png",
+    imageAlt: "Portfolio website screenshot",
+    technologies: [
+      "React",
+      "TypeScript",
+      "TanStack Router",
+      "Framer Motion",
+      "Tailwind CSS",
+    ],
+    blogPage: {
+      slug: "portfolio-app",
+      page: 1,
+    },
+    demoLink: "https://baoopn-web-v3.pages.dev",
+  },
+  {
     title: "Product Catalog API",
     period: "Dec 2024 - Feb 2025",
-    description: "A modern RESTful API for managing product catalogs with authentication, media management, and caching.",
+    description:
+      "A modern RESTful API for managing product catalogs with authentication, media management, and caching.",
     imageSrc: "/thumbs/product-catalog-api.png",
     imageAlt: "Product Catalog API screenshot",
     technologies: ["Node.js", "Express", "MongoDB", "Redis", "Cloudflare R2"],
     githubLink: "",
     blogPage: {
       slug: "product-catalog-api",
-      page: 1
-    }
-  },
-  {
-    title: "Personal Portfolio App",
-    period: "Feb 2025",
-    description: "A responsive portfolio website built with React and Framer Motion for smooth animations.",
-    imageSrc: "/thumbs/portfolio-thumb.png",
-    imageAlt: "Portfolio website screenshot",
-    technologies: ["React", "TypeScript", "TanStack Router", "Framer Motion", "Tailwind CSS"],
-    blogPage: {
-      slug: "portfolio-app",
-      page: 1
+      page: 1,
     },
-    demoLink: "https://baoopn.com/",
   },
 ];
 
