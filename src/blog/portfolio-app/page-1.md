@@ -50,11 +50,14 @@ src/
 3. **Smooth Animations**: Subtle transitions between sections and pages
 4. **Markdown Blog**: Dynamic blog content using React Markdown
 5. **Integrated Spotify**: Real-time display of my currently playing music
-	![Spotify Integration Screenshot](/blog-img/portfolio-app/spotify.png)
+
+![Spotify Integration Screenshot](/blog-img/portfolio-app/spotify.png)
+
 6. **Contact Form**: Form validation with real-time feedback and Telegram notifications
-	![Contact Form Screenshot](/blog-img/portfolio-app/contact-form.png) 
-	
-	![Telegram Screenshot](/blog-img/portfolio-app/telegram.png)
+
+![Contact Form Screenshot](/blog-img/portfolio-app/contact-form.png) 
+
+![Telegram Screenshot](/blog-img/portfolio-app/telegram.png)
 
 ### Development Approach
 
