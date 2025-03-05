@@ -17,6 +17,7 @@ const PROJECTS = [
       "TanStack Router",
       "Framer Motion",
       "Tailwind CSS",
+      "Spring Boot"
     ],
     blogPage: {
       slug: "portfolio-app",
