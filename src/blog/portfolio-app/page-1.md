@@ -4,7 +4,7 @@
 
 In this blog series, I'll share my experience building this portfolio website using modern web technologies. This project serves as both a showcase for my work and a practical demonstration of my technical skills in frontend development.
 
-![Portfolio Website Blog Thumbnail](/thumbs/portfolio-thumb.png)
+![Portfolio Website Blog Thumbnail](/thumbs/web-thumb.png)
 
 ![Portfolio Website Blog Screenshot](/blog-img/portfolio-app/baoopn_web.jpg)
 

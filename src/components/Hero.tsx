@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Reveal } from "./utils/Reveal";
 
 const HERO_TITLE = "Bao Nguyen";
-const HERO_SUBTITLE = "Full-stack Web and App Developer";
+const HERO_SUBTITLE = "Full-stack Web Developer & UI Designer";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
