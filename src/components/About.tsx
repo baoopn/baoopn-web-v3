@@ -71,7 +71,7 @@ const AboutSection = () => {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-2xl text-[var(--text-color)] hover:text-[var(--text-color-lighter)]"
+                className="text-2xl text-[var(--text-color)] hover:text-[var(--less-dark-pink)] transition-colors"
               >
                 <social.icon className="w-8 h-8" />
                 <span className="sr-only">{social.srText}</span>

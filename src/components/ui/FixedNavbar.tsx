@@ -32,7 +32,7 @@ const FixedNavbar: React.FC = () => {
         <Link to="/" href="/" className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-[var(--light-background)] rounded-full flex items-center justify-center">
             <img
-              src="https://cdn.baoopn.com/data/img/profile2.JPG"
+              src="/Bao_photo.jpg"
               alt="Bao's Icon"
               width={36}
               height={36}
