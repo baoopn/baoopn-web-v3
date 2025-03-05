@@ -29,7 +29,7 @@ function HomeComponent() {
   const background = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#0f3460", "#16213e", "#1a1a2e"]
+    ["#14284a", "#16213e", "#1a1a2e"]
   );
   // Light theme colors
   const background2 = useTransform(
