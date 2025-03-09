@@ -2,7 +2,6 @@
 
 .markdown-body {
   line-height: 1.6;
-  @apply pb-32;
 }
 
 .markdown-body h1,
@@ -36,6 +35,10 @@
 
 .markdown-body h6 {
   @apply text-base mt-2 mb-1;
+}
+
+.markdown-body a {
+  @apply text-[var(--less-dark-pink)] underline hover:text-[var(--dark-pink)];
 }
 
 .markdown-body p {
