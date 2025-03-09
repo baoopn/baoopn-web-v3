@@ -4,8 +4,6 @@
 
 After exploring the frontend in Part 2, let's dive into the backend services that power this portfolio website. I built a lightweight yet robust Spring Boot application to handle the Spotify integration and contact form functionality.
 
-![Spring Boot Architecture](/thumbs/spring-boot-diagram.png)
-
 ### Tech Stack Overview
 
 For the backend services, I selected these technologies:
@@ -22,7 +20,7 @@ One of the standout features of my portfolio is the real-time display of my curr
 
 #### Authentication Flow
 
-The Spotify API uses OAuth 2.0, requiring token-based authentication:
+The Spotify API uses OAuth 2.0, requiring token-based authentication. You can refer to the [Spotify API documentation](https://developer.spotify.com/documentation/web-api/tutorials/code-flow) for more details on getting access and refresh tokens.
 
 ```java
 public String getAccessToken() {
@@ -148,7 +146,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 ### Contact Form Integration
 
-The contact form on the portfolio website sends messages directly to my Telegram account.
+The contact form on the portfolio website sends messages directly to my Telegram account using Telegram Bot API. You can refer to [Telegram Bot API documentation](https://core.telegram.org/bots/api) and [Telegram Bot Tutorial](https://core.telegram.org/bots/tutorial) and for more details on setting up a bot for sending and receiving message.
 
 #### Message Service
 
