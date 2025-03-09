@@ -9,13 +9,16 @@ After establishing the project foundations, I focused on creating a robust front
 I structured the application using a component-based approach, with three main types of components:
 
 1. **Page Components**: Top-level components that represent entire pages or sections
-   - `HeroSection`, `AboutSection`, `ProjectsSection`, `ContactSection`
+
+  - `HeroSection`, `AboutSection`, `ProjectsSection`, `ContactSection`
 
 2. **UI Components**: Reusable interface elements used across multiple sections
-   - `Button`, `ActionButton`, `ProjectCard`, `ContactForm`, `SpotifyNowPlaying`, `Navbar.tsx`
+
+  - `Button`, `ActionButton`, `ProjectCard`, `ContactForm`, `SpotifyNowPlaying`, `Navbar.tsx`
 
 3. **Utility Components**: Helper components that provide specific functionality
-   - `Reveal`, `Pagination`
+
+  - `Reveal`, `Pagination`
 
 This separation creates a clear hierarchy and makes the codebase easier to navigate and maintain.
 
